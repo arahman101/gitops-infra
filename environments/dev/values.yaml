@@ -3,4 +3,7 @@ image:
   tag: 44
 
 ingress:
+  enabled: true
+  className: nginx
   host: dev.localhost
+  type: nginx

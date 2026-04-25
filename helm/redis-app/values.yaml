@@ -17,6 +17,5 @@ redis:
 
 ingress:
   enabled: true
-  className: nginx
   host: localhost
   path: /api/?(.*)

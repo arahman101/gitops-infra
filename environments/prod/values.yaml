@@ -3,4 +3,7 @@ image:
   tag: "prod-latest"
 
 ingress:
+  enabled: true
+  className: alb
   host: api.yourdomain.com
+  type: alb

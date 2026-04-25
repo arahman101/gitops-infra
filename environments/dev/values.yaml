@@ -1,6 +1,6 @@
 image:
   repository: 562437414591.dkr.ecr.eu-west-2.amazonaws.com/python-api
-  tag: "dev-latest"
+  tag: 44
 
 ingress:
   host: dev.localhost

@@ -1,9 +1,8 @@
 image:
   repository: 562437414591.dkr.ecr.eu-west-2.amazonaws.com/python-api
-  tag: "latest"
+  tag: "55"
 
 ingress:
-  className: alb
-  annotations:
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
+  enabled: true
+  type: alb
+  host: dev.localhost

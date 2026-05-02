@@ -38,16 +38,18 @@ spec:
   ingressClassName: alb
 
   rules:
-    - host: {{ .Values.ingress.host }}
-      http:
-        paths:
-          - path: /api
-            pathType: Prefix
-            backend:
-              service:
-                name: python-api
-                port:
-                  number: {{ .Values.service.port }}
+  - {{- if .Values.ingress.host }}
+    host: {{ .Values.ingress.host }}
+    {{- end }}
+    http:
+      paths:
+        - path: {{ .Values.ingress.path | default "/api" }}
+          pathType: Prefix
+          backend:
+            service:
+              name: python-api
+              port:
+                number: {{ .Values.service.port }}
 {{- end }}
 
 {{- end }}

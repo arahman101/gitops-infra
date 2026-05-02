@@ -18,4 +18,5 @@ redis:
 ingress:
   enabled: true
   host: localhost
-  path: /api/?(.*)
+  path: /api
+  type: alb

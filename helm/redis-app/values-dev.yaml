@@ -5,4 +5,5 @@ image:
 ingress:
   enabled: true
   type: alb
-  host: dev.localhost
+  host: ""
+  path: /api

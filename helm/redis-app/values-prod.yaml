@@ -6,3 +6,4 @@ ingress:
   enabled: true
   type: alb
   host: api.yourdomain.com
+  path: /api

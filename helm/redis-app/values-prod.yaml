@@ -2,8 +2,14 @@ image:
   repository: 562437414591.dkr.ecr.eu-west-2.amazonaws.com/python-api
   tag: "prod-latest"
 
-ingress:
+canary:
   enabled: true
+  tag: "prod-latest"
+  stableWeight: 90
+  canaryWeight: 10
+
+ingress:
+  enabled: false
   type: alb
   host: api.yourdomain.com
   path: /api

@@ -1,0 +1,17 @@
+{{- if .Values.canary.enabled }}
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: python-api 
+  namespace: {{ .Release.Namespace }}
+
+spec:
+  host: python-api 
+  subsets:
+    - name: stable 
+      labels:
+        version: stable
+    - name: canary 
+      labels:
+        version: canary 
+{{- end }}

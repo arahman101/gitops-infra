@@ -2,16 +2,15 @@
 apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
-  name: python-api 
+  name: python-api
   namespace: {{ .Release.Namespace }}
-
 spec:
-  host: python-api 
+  host: python-api
   subsets:
-    - name: stable 
+    - name: stable
       labels:
         version: stable
-    - name: canary 
+    - name: canary
       labels:
-        version: canary 
+        version: canary
 {{- end }}

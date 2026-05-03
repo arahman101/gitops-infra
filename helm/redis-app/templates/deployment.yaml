@@ -3,30 +3,24 @@ kind: Deployment
 metadata:
   name: python-api
   namespace: {{ .Release.Namespace }}
-  
 spec:
   replicas: {{ .Values.replicaCount }}
-
   selector:
     matchLabels:
       app: python-api
       version: stable
-
   template:
     metadata:
       labels:
         app: python-api
         version: stable
-
     spec:
       containers:
         - name: python-api
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-
           ports:
             - containerPort: {{ .Values.service.targetPort }}
-
           envFrom:
             - configMapRef:
                 name: redis-cm

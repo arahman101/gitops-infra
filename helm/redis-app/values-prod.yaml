@@ -12,4 +12,4 @@ ingress:
   enabled: false
   type: alb
   host: api.yourdomain.com
-  path: /api
+  path: /

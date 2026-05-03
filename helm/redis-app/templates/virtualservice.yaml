@@ -1,14 +1,13 @@
 {{- if .Values.canary.enabled }}
-apiVersion: networking.isito.io/v1beta1
+apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: python-api
   namespace: {{ .Release.Namespace }}
-
 spec:
   hosts:
     - "*"
-  gateway:
+  gateways:
     - fastapi-gateway
   http:
     - match:
@@ -16,15 +15,15 @@ spec:
             prefix: /
       route:
         - destination:
-            host: python-api 
-            subset: stable 
+            host: python-api
+            subset: stable
             port:
-              number: 80 
-          weight: {{ .Values.canary.stableWeight }}
-        - destination: 
-            host: python-api 
-            subset: canary 
-            port: 
               number: 80
-          weight: {{.Values.canary.canaryWeight }}
+          weight: {{ .Values.canary.stableWeight }}
+        - destination:
+            host: python-api
+            subset: canary
+            port:
+              number: 80
+          weight: {{ .Values.canary.canaryWeight }}
 {{- end }}

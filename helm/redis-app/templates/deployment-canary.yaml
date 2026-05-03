@@ -1,5 +1,5 @@
-{{- if .Values.canary.enabled}}
-apiVersion: apps/v1 
+{{- if .Values.canary.enabled }}
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: python-api-canary
@@ -9,18 +9,17 @@ spec:
   selector:
     matchLabels:
       app: python-api
-      version: canary 
-
+      version: canary
   template:
     metadata:
       labels:
-        app: python-api 
-        version: canary 
+        app: python-api
+        version: canary
     spec:
       containers:
-        - name: python-api 
+        - name: python-api
           image: "{{ .Values.image.repository }}:{{ .Values.canary.tag }}"
-          imagePullPolicy: {{.Values.image.pullPolicy}}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.targetPort }}
           envFrom:
@@ -28,5 +27,4 @@ spec:
                 name: redis-cm
             - secretRef:
                 name: redis-secret
-
 {{- end }}

@@ -7,3 +7,9 @@ ingress:
   type: alb
   host: ""
   path: /api
+
+canary:
+  enabled: false
+  tag: ""
+  stableWeight: 100
+  canaryWeight: 0

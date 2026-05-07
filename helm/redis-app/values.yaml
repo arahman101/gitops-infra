@@ -15,11 +15,11 @@ redis:
   port: 6379
   
 externalSecret:
-  enabled: true 
+  enabled: true
   refreshInterval: 1h
   secretStoreName: aws-secrets-manager
-  targetSecretName: redis-secret 
-  remoteSecretName: redis-app/dev/redis 
+  targetSecretName: redis-secret
+  remoteSecretName: redis-app/dev/redis
   remoteSecretProperty: REDIS_PASSWORD
 
 ingress:

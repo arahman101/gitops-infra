@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: redis
   namespace: {{ .Release.Namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 
 spec:
   replicas: 1
@@ -26,4 +28,4 @@ spec:
           args:
             - "redis-server"
             - "--requirepass"
-            - "{{ .Values.redis.password }}"
+            - "$(REDIS_PASSWORD)"

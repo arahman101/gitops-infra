@@ -1,6 +1,15 @@
 image:
   repository: 562437414591.dkr.ecr.eu-west-2.amazonaws.com/python-api
   tag: "55"
+  
+
+externalSecret:
+  enabled: true 
+  refreshInterval: 1h 
+  secretStoreName: aws-secrets-manager 
+  targetSecretName: redis-secret 
+  remoteSecretName: redis-app/dev/redis 
+  remoteSecretProperty: REDIS_PASSWORD
 
 ingress:
   enabled: true

@@ -2,6 +2,14 @@ image:
   repository: 562437414591.dkr.ecr.eu-west-2.amazonaws.com/python-api
   tag: "prod-latest"
 
+externalSecret:
+  enabled: true
+  refreshInterval: 1h
+  secretStoreName: aws-secrets-manager
+  targetSecretName: redis-secret
+  remoteSecretName: redis-app/prod/redis
+  remoteSecretProperty: REDIS_PASSWORD
+
 canary:
   enabled: true
   tag: "prod-latest"

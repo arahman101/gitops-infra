@@ -13,7 +13,14 @@ service:
 redis:
   image: redis:7
   port: 6379
-  password: redis-123
+  
+externalSecret:
+  enabled: true 
+  refreshInterval: 1h
+  secretStoreName: aws-secrets-manager
+  targetSecretName: redis-secret 
+  remoteSecretName: redis-app/dev/redis 
+  remoteSecretProperty: REDIS_PASSWORD
 
 ingress:
   enabled: true

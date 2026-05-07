@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: python-api
   namespace: {{ .Release.Namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+    
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
